@@ -1,0 +1,14 @@
+{signal: [
+  {name: 'clk', wave: 'p....................'},
+  {name: 'rst', wave: '10...................'},
+  {name: 'i_start_codeword', wave: '010..................'},
+  {name: 'i_end_codeword', wave: '0............10......'},
+  {name: 'i_valid', wave: '01....0.1.....0......'},
+  {name: 'i_symbol', wave: 'x=====xx======xxxxxxx', data: ['1','2','3','4','5','6','7','8','9','A','B']},
+  {name: 'o_in_ready', wave: '1.............0......'},
+  {name: 'o_start_codeword', wave: '0.10.................'},
+  {name: 'o_end_codeword', wave: '0..................10'},
+  {name: 'o_valid', wave: '0.1....0.1..........0'},
+  {name: 'o_symbol', wave: 'x.=====xx===========x', data: ['1','2','3','4','5','6','7','8','8','9','A','B','3','3','C', 'C']},
+  {name: 'r_state', wave: '222...2.2......2...22', data: ['WS', 'SC', 'PS', 'S', 'PS', 'GP', 'EC','WS']}
+]}

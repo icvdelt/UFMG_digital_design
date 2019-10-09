@@ -1,0 +1,61 @@
+set_elaborate_single_run_mode off
+proc run_analyze {} {
+    set path " ../../rs_codec/rs_encoder/formal"
+
+    analyze -vhdl08 -L GENERIC_TYPES $path/../../generic_components/generic_types.vhd
+    analyze -vhdl08 -L GENERIC_COMPONENTS $path/../../generic_components/generic_components.vhd
+    analyze -vhdl08 -L GENERIC_FUNCTIONS $path/../../generic_components/generic_functions.vhd
+    analyze -vhdl08 -L RS_TYPES $path/../../rs_common/rs_types.vhd
+    analyze -vhdl08 -L RS_CONSTANTS $path/../../rs_common/rs_constants.vhd
+    analyze -vhdl08 -L RS_FUNCTIONS $path/../../rs_common/rs_functions.vhd
+    analyze -vhdl08 -L RS_COMPONENTS $path/../../rs_common/rs_components.vhd
+    analyze -vhdl08 -L RS_CONSTANTS $path/../../rs_common/rs_constants.vhd
+    analyze -vhdl08 $path/../../rs_encoder/rtl/rs_encoder.vhd\
+                    $path/../../generic_components/async_dff/async_dff.vhd\
+                    $path/../../rs_common/rs_adder/rs_adder.vhd\
+                    $path/../../rs_common/rs_multiplier_lut/rs_multiplier_lut.vhd\
+                    $path/../../rs_common/rs_multiplier/rs_multiplier.vhd\
+                    $path/../../rs_encoder/rtl/rs_remainder_unit/rs_remainder_unit.vhd
+
+    set path  "../../rs_codec/generic_components"
+    analyze -vhdl08 $path/demultiplexer_array/demultiplexer_array.vhd
+    analyze -vhdl08 $path/multiplexer_array/multiplexer_array.vhd
+    analyze -vhdl08 $path/single_port_ram/single_port_ram.vhd
+    analyze -vhdl08 $path/generic_buffer/generic_buffer.vhd
+    analyze -vhdl08 $path/two_input_size_generic_buffer/two_input_size_generic_buffer.vhd
+
+    set path "../../interleaver/rtl"
+    analyze -vhdl08 -L INTERLEAVER_COMPONENTS $path/interleaver_components.vhd
+    analyze -vhdl08 $path/rectangular_interleaver.vhd
+
+    set path "../../convolutional_encoder/rtl"
+    analyze -vhdl08 -L CONVOLUTIONAL_ENCODER_COMPONENTS $path/convolutional_encoder_components.vhd
+    analyze -vhdl08 $path/convolutional_encoder.vhd
+
+    set path "../rtl"
+    analyze -vhdl08 -L VLC_PHY_TYPES $path/vlc_phy_common/vlc_phy_types.vhd
+    analyze -vhdl08 -L VLC_PHY_FUNCTIONS $path/vlc_phy_common/vlc_phy_functions.vhd
+    analyze -vhdl08 -L VLC_PHY_COMPONENTS $path/vlc_phy_common/vlc_phy_components.vhd
+
+    set path "../rtl/vlc_phy_transmitter"
+    analyze -vhdl08 $path/b_to_b_rll_code.vhd
+    analyze -vhdl08 $path/manchester_rll_code.vhd
+    analyze -vhdl08 $path/vlc_phy_tx_data_path_control.vhd
+    analyze -vhdl08 $path/vlc_phy_rs_encoder_control.vhd
+    analyze -vhdl08 $path/vlc_phy_rs_encoder_set.vhd
+    analyze -vhdl08 $path/vlc_phy_rectangular_interleaver.vhd
+    analyze -vhdl08 $path/vlc_phy_convolutional_encoder_puncture.vhd
+    analyze -vhdl08 $path/vlc_phy_convolutional_encoder.vhd
+    analyze -vhdl08 $path/vlc_phy_rll_code.vhd
+    analyze -vhdl08 $path/vlc_phy_ook.vhd
+    analyze -vhdl08 $path/vlc_phy_vppm.vhd
+    analyze -vhdl08 $path/vlc_phy_shr_generator.vhd
+    analyze -vhdl08 $path/vlc_phy_modulator.vhd
+    analyze -vhdl08 $path/vlc_phy_transmitter.vhd
+}
+
+proc run_design_compilation {} {
+    clear -all
+    run_analyze
+    elaborate -vhdl -top vlc_phy_transmitter
+}

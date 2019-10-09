@@ -1,0 +1,132 @@
+diff --git a/a b/a
+index d14c7fd..f8270a2 100644
+--- a/a
++++ b/a
+@@ -1,61 +1,66 @@
+-diff --git a/rs_codec/rs_common/rs_components.vhd b/rs_codec/rs_common/rs_components.vhd
+-index 29339c8..f6e91f0 100644
+---- a/rs_codec/rs_common/rs_components.vhd
+-+++ b/rs_codec/rs_common/rs_components.vhd
+-@@ -376,4 +376,39 @@ package RS_COMPONENTS is
+-             o_syndrome : out std_logic_vector_array(TWO_TIMES_T-1 downto 0)(WORD_LENGTH-1 downto 0)
+-         );
+-     end component;
+-+
+-+    component rs_error_generator is
+-+        generic (
+-+            N : natural range 2 to 1023;
+-+            RS_GF : RSGFSize := RS_GF_NONE;
+-+            WORD_LENGTH : natural := get_word_length_from_rs_gf(N, RS_GF)
+-+        );
+-+        port (
+-+            clk : in std_logic;
+-+            rst : in std_logic;
+-+            
+-+            --Undriven signals responsible for error modelling
+-+            i_corrupt_symbol : in std_logic;
+-+            i_error_symbol : in std_logic_vector(WORD_LENGTH-1 downto 0);    
+-+
+-+            --Signals from rs_encoder
+-+            i_o_encoder_start_codeword : in std_logic;
+-+            i_o_encoder_end_codeword : in std_logic;
+-+            i_o_encoder_valid : in std_logic;
+-+            i_o_encoder_symbol : in std_logic_vector(WORD_LENGTH-1 downto 0);
+-+
+-+            --Signals from rs_decoder    
+-+            i_consume_fifo : in std_logic;
+-+            i_o_decoder_symbol : in std_logic_vector(WORD_LENGTH-1 downto 0);    
+-+            
+-+            o_i_decoder_valid : out std_logic;
+-+            o_i_decoder_start_codeword : out std_logic;
+-+            o_i_decoder_end_codeword : out std_logic;
+-+            o_enable_encoder_valid : out std_logic;
+-+            o_fifo_empty : out std_logic;
+-+            o_fifo_xor_decoder_symbol : out std_logic;
+-+            o_error_counter : out std_logic_vector(WORD_LENGTH-1 downto 0);
+-+            o_i_decoder_symbol : out std_logic_vector(WORD_LENGTH-1 downto 0)
+-+        );
+-+    end component;
+- end package RS_COMPONENTS;
+-diff --git a/rs_codec/rs_common/rs_functions.vhd b/rs_codec/rs_common/rs_functions.vhd
+-index 304ff90..96ab012 100644
+---- a/rs_codec/rs_common/rs_functions.vhd
+-+++ b/rs_codec/rs_common/rs_functions.vhd
+-@@ -6,10 +6,10 @@
+- ---------------------------------------------------------------------------
+- 
+- library IEEE;
+--use IEEE.NUMERIC_STD.all;
+--use IEEE.STD_LOGIC_1164.all;
+- use IEEE.MATH_REAL.ceil;
+- use IEEE.MATH_REAL.log2;
+-+use IEEE.NUMERIC_STD.all;
+-+use IEEE.STD_LOGIC_1164.all;
+- library work;
+- use work.RS_CONSTANTS.gp_pow_2;
+- use work.RS_CONSTANTS.gp_pow_3;
++diff --git a/a b/a
++index d14c7fd..e69de29 100644
++--- a/a
+++++ b/a
++@@ -1,61 +0,0 @@
++-diff --git a/rs_codec/rs_common/rs_components.vhd b/rs_codec/rs_common/rs_components.vhd
++-index 29339c8..f6e91f0 100644
++---- a/rs_codec/rs_common/rs_components.vhd
++-+++ b/rs_codec/rs_common/rs_components.vhd
++-@@ -376,4 +376,39 @@ package RS_COMPONENTS is
++-             o_syndrome : out std_logic_vector_array(TWO_TIMES_T-1 downto 0)(WORD_LENGTH-1 downto 0)
++-         );
++-     end component;
++-+
++-+    component rs_error_generator is
++-+        generic (
++-+            N : natural range 2 to 1023;
++-+            RS_GF : RSGFSize := RS_GF_NONE;
++-+            WORD_LENGTH : natural := get_word_length_from_rs_gf(N, RS_GF)
++-+        );
++-+        port (
++-+            clk : in std_logic;
++-+            rst : in std_logic;
++-+            
++-+            --Undriven signals responsible for error modelling
++-+            i_corrupt_symbol : in std_logic;
++-+            i_error_symbol : in std_logic_vector(WORD_LENGTH-1 downto 0);    
++-+
++-+            --Signals from rs_encoder
++-+            i_o_encoder_start_codeword : in std_logic;
++-+            i_o_encoder_end_codeword : in std_logic;
++-+            i_o_encoder_valid : in std_logic;
++-+            i_o_encoder_symbol : in std_logic_vector(WORD_LENGTH-1 downto 0);
++-+
++-+            --Signals from rs_decoder    
++-+            i_consume_fifo : in std_logic;
++-+            i_o_decoder_symbol : in std_logic_vector(WORD_LENGTH-1 downto 0);    
++-+            
++-+            o_i_decoder_valid : out std_logic;
++-+            o_i_decoder_start_codeword : out std_logic;
++-+            o_i_decoder_end_codeword : out std_logic;
++-+            o_enable_encoder_valid : out std_logic;
++-+            o_fifo_empty : out std_logic;
++-+            o_fifo_xor_decoder_symbol : out std_logic;
++-+            o_error_counter : out std_logic_vector(WORD_LENGTH-1 downto 0);
++-+            o_i_decoder_symbol : out std_logic_vector(WORD_LENGTH-1 downto 0)
++-+        );
++-+    end component;
++- end package RS_COMPONENTS;
++-diff --git a/rs_codec/rs_common/rs_functions.vhd b/rs_codec/rs_common/rs_functions.vhd
++-index 304ff90..96ab012 100644
++---- a/rs_codec/rs_common/rs_functions.vhd
++-+++ b/rs_codec/rs_common/rs_functions.vhd
++-@@ -6,10 +6,10 @@
++- ---------------------------------------------------------------------------
++- 
++- library IEEE;
++--use IEEE.NUMERIC_STD.all;
++--use IEEE.STD_LOGIC_1164.all;
++- use IEEE.MATH_REAL.ceil;
++- use IEEE.MATH_REAL.log2;
++-+use IEEE.NUMERIC_STD.all;
++-+use IEEE.STD_LOGIC_1164.all;
++- library work;
++- use work.RS_CONSTANTS.gp_pow_2;
++- use work.RS_CONSTANTS.gp_pow_3;

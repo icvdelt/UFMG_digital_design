@@ -1,0 +1,78 @@
+---------------------------------------------------------------------------
+-- Universidade Federal de Minas Gerais (UFMG)
+---------------------------------------------------------------------------
+-- Project: Reed-Solomon Decode
+-- Design: RS Forney
+---------------------------------------------------------------------------
+
+library IEEE;
+use IEEE.STD_LOGIC_1164.all;
+use IEEE.NUMERIC_STD.all;
+library work;
+use work.RS_CONSTANTS.all;
+use work.RS_COMPONENTS.all;
+use work.GENERIC_COMPONENTS.all;
+
+entity rs_forney is
+    generic (
+        WORD_LENGTH : natural range 2 to 10;
+        TWO_TIMES_T : natural range 1 to (2**WORD_LENGTH-2)
+    );
+    port (
+        clk : in std_logic;
+        rst : in std_logic;
+	i_has_error : out std_logic;
+	i_sel : in std_logic;
+	i_derivative : in std_logic_vector(WORD_LENGTH-1 downto 0);	
+        i_terms : in std_logic_vector_array(TWO_TIMES_T-3 downto 0)(WORD_LENGTH-1 downto 0);
+	o_error : out std_logic_vector(WORD_LENGTH-1 downto 0)
+    );
+end rs_forney;
+
+architecture behavioral of rs_forney is
+    constant word_zero : std_logic_vector(WORD_LENGTH-1 downto 0) := (others => '0');
+    signal w_inverter : std_logic_vector(WORD_LENGTH-1 downto 0);
+    signal w_selector : std_logic_vector_array(TWO_TIMES_T-3 downto 0)(WORD_LENGTH-1 downto 0);
+    signal w_multiplier : std_logic_vector_array(TWO_TIMES_T-3 downto 0)(WORD_LENGTH-1 downto 0);
+    signal r_flop : std_logic_vector_array(TWO_TIMES_T-3 downto 0)(WORD_LENGTH-1 downto 0);
+    signal w_adder : std_logic_vector_array(TWO_TIMES_T-4 downto 0)(WORD_LENGTH-1 downto 0);
+begin
+    GEN_rs_forney_UNIT: for I in 0 to TWO_TIMES_T-3 generate
+    begin
+	w_selector(I) <= i_terms(I) when i_sel else r_flop(I);
+	MULTIPLIER: rs_multiplier
+		    --create afunction that return this operation that is inside the galois fiels.
+                    generic map (WORD_LENGTH,2**I)
+                    port map (w_selector(I), 
+                              w_multiplier(I));
+        D_FLOP: dff 
+                generic map (WORD_LENGTH) 
+                port map (w_multiplier(I),
+                          clk,
+                          rst,
+                          r_flop(I));
+	GEN_ADDER: if  I = 1 generate 
+            ADDER: rs_adder 
+                   generic map (WORD_LENGTH)
+                   port map (r_flop(I-1),
+                             r_flop(I),
+                             w_adder(0));
+	elsif I > 1 generate
+            ADDER: rs_adder 
+                   generic map (WORD_LENGTH)
+                   port map (w_adder(I-2),
+                             r_flop(I),
+                             w_adder(I-1));
+	end generate;
+    end generate;
+    INVERTER: rs_inverse
+              generic map(WORD_LENGTH)
+              port map(i_derivative,
+                       w_inverter);
+    FULL_MULT: rs_full_multiplier
+               generic map(WORD_LENGTH)
+               port map(w_inverter,
+                        w_adder(TWO_TIMES_T-4),
+                        w_full_mult);
+    o_error <= w_full_mult when i_has_error else word_zero;
+end behavioral;

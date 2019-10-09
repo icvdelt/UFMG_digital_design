@@ -1,0 +1,97 @@
+diff --git a/rs_codec/rs_decoder/formal/rtl/rs_codec_wrapper.vhd b/rs_codec/rs_decoder/formal/rtl/rs_codec_wrapper.vhd
+index e8258d5..d930aaa 100644
+--- a/rs_codec/rs_decoder/formal/rtl/rs_codec_wrapper.vhd
++++ b/rs_codec/rs_decoder/formal/rtl/rs_codec_wrapper.vhd
+@@ -70,7 +70,7 @@ begin
+                               i_valid => i_encoder_valid and w_enable_encoder_valid,
+                               i_symbol => i_encoder_symbol,
+                               o_start_codeword => w_encoder_start_codeword,
+-                              o_end_codeword => o_end_codeword,
++                              o_end_codeword => w_encoder_end_codeword,
+                               o_error => open,
+                               o_in_ready => open,
+                               o_valid => w_encoder_valid,
+@@ -103,8 +103,8 @@ begin
+                      RS_GF => RS_GF)
+          port map(clk => clk,
+                   rst => rst,
+-                  i_end_codeword => w_i_decoder_start_codeword,
+-                  i_start_codeword => w_i_decoder_end_codeword,
++                  i_end_codeword => w_i_decoder_end_codeword,
++                  i_start_codeword => w_i_decoder_start_codeword,
+                   i_valid => w_i_decoder_valid,
+                   i_symbol => w_i_decoder_symbol,
+                   o_in_ready => open,
+diff --git a/rs_codec/rs_decoder/formal/rtl/rs_error_generator.vhd b/rs_codec/rs_decoder/formal/rtl/rs_error_generator.vhd
+index bfa26e8..d614c72 100644
+--- a/rs_codec/rs_decoder/formal/rtl/rs_error_generator.vhd
++++ b/rs_codec/rs_decoder/formal/rtl/rs_error_generator.vhd
+@@ -85,8 +85,8 @@ begin
+                                                 rst => rst,
+                                                 q(0) => o_i_decoder_end_codeword);
+ 
+-    w_enable_error_insertion <= '0' when i_o_encoder_end_codeword else 
+-                                '1' when i_o_encoder_start_codeword else 
++    w_enable_error_insertion <= '0' when i_o_encoder_end_codeword and i_o_encoder_valid else 
++                                '1' when i_o_encoder_start_codeword and i_o_encoder_valid else 
+                                 r_enable_error_insertion;
+ 
+     ENABLE_ERROR_INSERTION_ASYNC_DFF : async_dff
+@@ -110,7 +110,7 @@ begin
+                                          rst => rst,
+                                          q => r_encoder_symbol);
+ 
+-    w_error_insertion_symbol <= i_error_symbol when r_enable_error_insertion else (others => '0');
++    w_error_insertion_symbol <= i_error_symbol when (r_enable_error_insertion and i_corrupt_symbol) else (others => '0');
+     ERROR_INSERTION_ADDER_INST : rs_adder 
+                                 generic map (WORD_LENGTH => WORD_LENGTH)
+                                 port map (i1 => r_encoder_symbol,
+@@ -133,7 +133,7 @@ begin
+     ERROR_COUNTER_INST : up_counter
+                          generic map (WORD_LENGTH => WORD_LENGTH)
+                          port map (clk => clk,
+-                                   rst => rst or i_o_encoder_start_codeword, 
++                                   rst => rst or (i_o_encoder_start_codeword and i_o_encoder_valid), 
+                                    i_inc => w_counter_inc,
+                                    o_counter => w_error_counter);
+                          
+@@ -144,7 +144,7 @@ begin
+                                         o => w_decoder_check_adder);
+ 
+     o_i_decoder_valid <= r_o_encoder_valid;
+-    o_enable_encoder_valid <= not w_symbol_fifo_empty or r_enable_error_insertion;
++    o_enable_encoder_valid <= w_symbol_fifo_empty or (r_enable_error_insertion and not i_o_encoder_end_codeword);
+     o_fifo_empty <= w_symbol_fifo_empty;
+     o_fifo_xor_decoder_symbol <= or w_decoder_check_adder;
+     o_error_counter <= w_error_counter;
+diff --git a/rs_codec/rs_decoder/formal/run_formal_with_helper_rtl_block.tcl b/rs_codec/rs_decoder/formal/run_formal_with_helper_rtl_block.tcl
+index bcc66ac..28bb05c 100644
+--- a/rs_codec/rs_decoder/formal/run_formal_with_helper_rtl_block.tcl
++++ b/rs_codec/rs_decoder/formal/run_formal_with_helper_rtl_block.tcl
+@@ -53,3 +53,26 @@ proc run_design_compilation {N K RS_GF} {
+ }
+ 
+ run_design_compilation 15 11 RS_GF_16
++clock clk
++reset rst
++task -create formal -set
++assert {o_valid and o_error_counter <= 2 |->  not o_fifo_xor_decoder_symbol}
++set generate_properties []
++set generate_properties [linsert $generate_properties end [assume -bound 1 i_encoder_start_codeword -name REQ_RS_ENC_016.GENERATE.01]]
++set generate_properties [linsert $generate_properties end [assume {i_encoder_start_codeword |=> not (i_encoder_start_codeword)} -name REQ_RS_ENC_016.GENERATE.02]]
++set generate_properties [linsert $generate_properties end [assume {not (i_encoder_start_codeword) |=> not (i_encoder_start_codeword)} -name REQ_RS_ENC_016.GENERATE.03]]
++#set generate_properties [linsert $generate_properties end [assume {i_encoder_end_codeword |=> not (i_encoder_end_codeword)} -name REQ_RS_ENC_016.GENERATE.04]]
++#set generate_properties [linsert $generate_properties end [assume {not (i_encoder_end_codeword) |=> not (i_encoder_end_codeword)} -name REQ_RS_ENC_016.GENERATE.05]]
++assume {not i_encoder_end_codeword} -bound 10
++assume {i_encoder_end_codeword |=> not i_encoder_end_codeword}
++assume {##10 not i_encoder_end_codeword |=> not i_encoder_end_codeword}
++
++assume {i_encoder_valid} -bound 11
++assume {##11 not i_encoder_valid}
++assume {not i_encoder_valid |=> not i_encoder_valid}
++
++#assume {##10 i_encoder_end_codeword}
++#stopat {w_encoder_end_codeword w_encoder_start_codeword w_encoder_valid}
++
++
++prove -task formal
