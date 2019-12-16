@@ -1,0 +1,25 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.all;
+
+entity half_adder_unit is
+
+	port (
+		input : in std_logic;
+		c_in : in std_logic;
+		output : out std_logic;
+		c_out : out std_logic
+	);
+
+end half_adder_unit;
+
+architecture dataflow_hau of half_adder_unit is
+
+	signal exp : std_logic_vector (1 downto 0) := input & c_in;
+	
+	begin
+		
+		c_out <= input and c_in;
+		
+		output <= input xor c_in;
+
+end dataflow_hau;

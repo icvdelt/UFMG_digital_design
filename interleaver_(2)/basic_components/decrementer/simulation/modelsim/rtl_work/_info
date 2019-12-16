@@ -1,0 +1,110 @@
+m255
+K3
+13
+cModel Technology
+Z0 dC:\Users\Gabriel_Ricardo\Documents\Documentos_Gabriel\Quartus_projects\Lifi\basic_components\decrementer\simulation\modelsim
+Edecrementer
+Z1 w1576449293
+Z2 DPx3 std 6 textio 0 22 5>J:;AW>W0[[dW0I6EN1Q0
+Z3 DPx4 ieee 14 std_logic_1164 0 22 5=aWaoGZSMWIcH0i^f`XF1
+Z4 dC:\Users\Gabriel_Ricardo\Documents\Documentos_Gabriel\Quartus_projects\Lifi\basic_components\decrementer\simulation\modelsim
+Z5 8C:/Users/Gabriel_Ricardo/Documents/Documentos_Gabriel/Quartus_projects/Lifi/basic_components/decrementer/decrementer.vhd
+Z6 FC:/Users/Gabriel_Ricardo/Documents/Documentos_Gabriel/Quartus_projects/Lifi/basic_components/decrementer/decrementer.vhd
+l0
+L4
+VLFLKO^4E=cPD9g=zZoLS22
+Z7 OV;C;10.1b;51
+31
+Z8 !s108 1576449363.774000
+Z9 !s90 -reportprogress|300|-93|-work|work|C:/Users/Gabriel_Ricardo/Documents/Documentos_Gabriel/Quartus_projects/Lifi/basic_components/decrementer/decrementer.vhd|
+Z10 !s107 C:/Users/Gabriel_Ricardo/Documents/Documentos_Gabriel/Quartus_projects/Lifi/basic_components/decrementer/decrementer.vhd|
+Z11 o-93 -work work -O0
+Z12 tExplicit 1
+!s100 Q<8d:in>ZlU5>bICZYeR43
+!i10b 1
+Adataflow_dec
+R2
+R3
+DEx4 work 11 decrementer 0 22 LFLKO^4E=cPD9g=zZoLS22
+l28
+L15
+V5U?Q[c>b1oG2?O0O8^IP72
+R7
+31
+R8
+R9
+R10
+R11
+R12
+!s100 NMZZYI:lB42I@BEHVk_450
+!i10b 1
+Ehalf_subtractor_unit
+Z13 w1576449229
+R2
+R3
+R4
+Z14 8C:/Users/Gabriel_Ricardo/Documents/Documentos_Gabriel/Quartus_projects/Lifi/basic_components/decrementer/half_subtractor_unit.vhd
+Z15 FC:/Users/Gabriel_Ricardo/Documents/Documentos_Gabriel/Quartus_projects/Lifi/basic_components/decrementer/half_subtractor_unit.vhd
+l0
+L4
+ViL<>Iji`oVRNVT_Cd]ET]2
+R7
+31
+Z16 !s108 1576449363.243000
+Z17 !s90 -reportprogress|300|-93|-work|work|C:/Users/Gabriel_Ricardo/Documents/Documentos_Gabriel/Quartus_projects/Lifi/basic_components/decrementer/half_subtractor_unit.vhd|
+Z18 !s107 C:/Users/Gabriel_Ricardo/Documents/Documentos_Gabriel/Quartus_projects/Lifi/basic_components/decrementer/half_subtractor_unit.vhd|
+R11
+R12
+!s100 7O=@aUXE5Ai>GdZmNHOV60
+!i10b 1
+Adataflow_hsu
+R2
+R3
+DEx4 work 20 half_subtractor_unit 0 22 iL<>Iji`oVRNVT_Cd]ET]2
+l16
+L15
+V0gLm^50F7?5lG[AYKg4ba2
+R7
+31
+R16
+R17
+R18
+R11
+R12
+!s100 H0Y2N^8RSB[]N`DO=NlNa3
+!i10b 1
+Etestbench_dec
+R13
+R2
+R3
+R4
+Z19 8C:/Users/Gabriel_Ricardo/Documents/Documentos_Gabriel/Quartus_projects/Lifi/basic_components/decrementer/testbench_dec.vhd
+Z20 FC:/Users/Gabriel_Ricardo/Documents/Documentos_Gabriel/Quartus_projects/Lifi/basic_components/decrementer/testbench_dec.vhd
+l0
+L4
+VoaaWd40EE0j5A;AS@;Gi81
+!s100 nGSV@J`4l4Jg3h6>A[EHJ2
+R7
+31
+!i10b 1
+Z21 !s108 1576449364.196000
+Z22 !s90 -reportprogress|300|-93|-work|work|C:/Users/Gabriel_Ricardo/Documents/Documentos_Gabriel/Quartus_projects/Lifi/basic_components/decrementer/testbench_dec.vhd|
+Z23 !s107 C:/Users/Gabriel_Ricardo/Documents/Documentos_Gabriel/Quartus_projects/Lifi/basic_components/decrementer/testbench_dec.vhd|
+R11
+R12
+Adataflow_tbd
+R2
+R3
+DEx4 work 13 testbench_dec 0 22 oaaWd40EE0j5A;AS@;Gi81
+l23
+L7
+VbXH3UmPc`8Y8CZBQ0X16^3
+!s100 dRCmNKj7[YI=3L]d6@[H23
+R7
+31
+!i10b 1
+R21
+R22
+R23
+R11
+R12

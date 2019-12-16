@@ -1,0 +1,79 @@
+m255
+K3
+13
+cModel Technology
+Z0 dC:\Users\Gabriel_Ricardo\Documents\Documentos_Gabriel\Quartus_projects\Lifi\basic_components\multiplier\simulation\modelsim
+Emultiplier
+Z1 w1574261340
+Z2 DPx4 ieee 11 numeric_std 0 22 O3PF8EB`?j9=z7KT`fn941
+Z3 DPx3 std 6 textio 0 22 5>J:;AW>W0[[dW0I6EN1Q0
+Z4 DPx4 ieee 14 std_logic_1164 0 22 5=aWaoGZSMWIcH0i^f`XF1
+Z5 dC:\Users\Gabriel_Ricardo\Documents\Documentos_Gabriel\Quartus_projects\Lifi\basic_components\multiplier\simulation\modelsim
+Z6 8C:/Users/Gabriel_Ricardo/Documents/Documentos_Gabriel/Quartus_projects/Lifi/basic_components/multiplier/multiplier.vhd
+Z7 FC:/Users/Gabriel_Ricardo/Documents/Documentos_Gabriel/Quartus_projects/Lifi/basic_components/multiplier/multiplier.vhd
+l0
+L5
+V<:i:2jZL=h>Vo<ikTaXGV2
+Z8 OV;C;10.1b;51
+31
+Z9 !s108 1574261530.320000
+Z10 !s90 -reportprogress|300|-93|-work|work|C:/Users/Gabriel_Ricardo/Documents/Documentos_Gabriel/Quartus_projects/Lifi/basic_components/multiplier/multiplier.vhd|
+Z11 !s107 C:/Users/Gabriel_Ricardo/Documents/Documentos_Gabriel/Quartus_projects/Lifi/basic_components/multiplier/multiplier.vhd|
+Z12 o-93 -work work -O0
+Z13 tExplicit 1
+!s100 14@dBF12:P?TKT[Bni0G02
+!i10b 1
+Abh_mult
+R2
+R3
+R4
+DEx4 work 10 multiplier 0 22 <:i:2jZL=h>Vo<ikTaXGV2
+l18
+L16
+VZCoFHk?_GFSOg_REL5i3A1
+R8
+31
+R9
+R10
+R11
+R12
+R13
+!s100 noMDFLC777FCI?R@;a;P`2
+!i10b 1
+Etestbench_mult
+Z14 w1574260192
+R2
+R3
+R4
+R5
+Z15 8C:/Users/Gabriel_Ricardo/Documents/Documentos_Gabriel/Quartus_projects/Lifi/basic_components/multiplier/testbench_mult.vhd
+Z16 FC:/Users/Gabriel_Ricardo/Documents/Documentos_Gabriel/Quartus_projects/Lifi/basic_components/multiplier/testbench_mult.vhd
+l0
+L5
+VLGV09UfgzSK=W1d2BmZba0
+!s100 [`0EWm4Go5OLGoZWbg4gb2
+R8
+31
+!i10b 1
+Z17 !s108 1574261531.320000
+Z18 !s90 -reportprogress|300|-93|-work|work|C:/Users/Gabriel_Ricardo/Documents/Documentos_Gabriel/Quartus_projects/Lifi/basic_components/multiplier/testbench_mult.vhd|
+Z19 !s107 C:/Users/Gabriel_Ricardo/Documents/Documentos_Gabriel/Quartus_projects/Lifi/basic_components/multiplier/testbench_mult.vhd|
+R12
+R13
+Adataflow_tbm
+R2
+R3
+R4
+DEx4 work 14 testbench_mult 0 22 LGV09UfgzSK=W1d2BmZba0
+l24
+L8
+VA<o@?M57DRlNA6zhMNcbM3
+!s100 Sn2EBz;_=nN2=XQ>f_`k20
+R8
+31
+!i10b 1
+R17
+R18
+R19
+R12
+R13

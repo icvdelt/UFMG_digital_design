@@ -1,0 +1,79 @@
+m255
+K3
+13
+cModel Technology
+Z0 dC:\Users\Gabriel_Ricardo\Documents\Documentos_Gabriel\Quartus_projects\Lifi\basic_components\comparator\simulation\modelsim
+Ecomparator
+Z1 w1574230539
+Z2 DPx4 ieee 11 numeric_std 0 22 O3PF8EB`?j9=z7KT`fn941
+Z3 DPx3 std 6 textio 0 22 5>J:;AW>W0[[dW0I6EN1Q0
+Z4 DPx4 ieee 14 std_logic_1164 0 22 5=aWaoGZSMWIcH0i^f`XF1
+Z5 dC:\Users\Gabriel_Ricardo\Documents\Documentos_Gabriel\Quartus_projects\Lifi\basic_components\comparator\simulation\modelsim
+Z6 8C:/Users/Gabriel_Ricardo/Documents/Documentos_Gabriel/Quartus_projects/Lifi/basic_components/comparator/comparator.vhd
+Z7 FC:/Users/Gabriel_Ricardo/Documents/Documentos_Gabriel/Quartus_projects/Lifi/basic_components/comparator/comparator.vhd
+l0
+L5
+VP=S;iB9:l7@K@:5M;FLo_3
+Z8 OV;C;10.1b;51
+31
+Z9 !s108 1574230868.300000
+Z10 !s90 -reportprogress|300|-93|-work|work|C:/Users/Gabriel_Ricardo/Documents/Documentos_Gabriel/Quartus_projects/Lifi/basic_components/comparator/comparator.vhd|
+Z11 !s107 C:/Users/Gabriel_Ricardo/Documents/Documentos_Gabriel/Quartus_projects/Lifi/basic_components/comparator/comparator.vhd|
+Z12 o-93 -work work -O0
+Z13 tExplicit 1
+!s100 T_1D4lLkSn`dLb<8PhSL?0
+!i10b 1
+Abh_comp
+R2
+R3
+R4
+DEx4 work 10 comparator 0 22 P=S;iB9:l7@K@:5M;FLo_3
+l18
+L17
+VXYb9U<c=gVXh`YS]c9Q[`1
+R8
+31
+R9
+R10
+R11
+R12
+R13
+!s100 oH^gF21`aD6`J?kT5VZXM2
+!i10b 1
+Etestbench_comp
+Z14 w1574230591
+R2
+R3
+R4
+R5
+Z15 8C:/Users/Gabriel_Ricardo/Documents/Documentos_Gabriel/Quartus_projects/Lifi/basic_components/comparator/testbench_comp.vhd
+Z16 FC:/Users/Gabriel_Ricardo/Documents/Documentos_Gabriel/Quartus_projects/Lifi/basic_components/comparator/testbench_comp.vhd
+l0
+L5
+V6HPkI957h989Lo>:OD[Nn2
+!s100 P?]h]eMC`2Vkj3X6?n4F82
+R8
+31
+!i10b 1
+Z17 !s108 1574230869.325000
+Z18 !s90 -reportprogress|300|-93|-work|work|C:/Users/Gabriel_Ricardo/Documents/Documentos_Gabriel/Quartus_projects/Lifi/basic_components/comparator/testbench_comp.vhd|
+Z19 !s107 C:/Users/Gabriel_Ricardo/Documents/Documentos_Gabriel/Quartus_projects/Lifi/basic_components/comparator/testbench_comp.vhd|
+R12
+R13
+Adataflow_tbc
+R2
+R3
+R4
+DEx4 work 14 testbench_comp 0 22 6HPkI957h989Lo>:OD[Nn2
+l25
+L8
+V_A4RQLN3OdBRK?ZhYfJd<3
+!s100 RE@EWPz7lVK@2oK]ZNQ__0
+R8
+31
+!i10b 1
+R17
+R18
+R19
+R12
+R13

@@ -1,0 +1,79 @@
+m255
+K3
+13
+cModel Technology
+Z0 dC:\Users\Gabriel_Ricardo\Documents\Documentos_Gabriel\Quartus_projects\Lifi\basic_components\mux_2x1\simulation\modelsim
+Emux_2x1
+Z1 w1574224741
+Z2 DPx4 ieee 11 numeric_std 0 22 O3PF8EB`?j9=z7KT`fn941
+Z3 DPx3 std 6 textio 0 22 5>J:;AW>W0[[dW0I6EN1Q0
+Z4 DPx4 ieee 14 std_logic_1164 0 22 5=aWaoGZSMWIcH0i^f`XF1
+Z5 dC:\Users\Gabriel_Ricardo\Documents\Documentos_Gabriel\Quartus_projects\Lifi\basic_components\mux_2x1\simulation\modelsim
+Z6 8C:/Users/Gabriel_Ricardo/Documents/Documentos_Gabriel/Quartus_projects/Lifi/basic_components/mux_2x1/mux_2x1.vhd
+Z7 FC:/Users/Gabriel_Ricardo/Documents/Documentos_Gabriel/Quartus_projects/Lifi/basic_components/mux_2x1/mux_2x1.vhd
+l0
+L5
+VeQ^QECeaSOK1EI5;TH@YS3
+Z8 OV;C;10.1b;51
+31
+Z9 !s108 1574224813.821000
+Z10 !s90 -reportprogress|300|-93|-work|work|C:/Users/Gabriel_Ricardo/Documents/Documentos_Gabriel/Quartus_projects/Lifi/basic_components/mux_2x1/mux_2x1.vhd|
+Z11 !s107 C:/Users/Gabriel_Ricardo/Documents/Documentos_Gabriel/Quartus_projects/Lifi/basic_components/mux_2x1/mux_2x1.vhd|
+Z12 o-93 -work work -O0
+Z13 tExplicit 1
+!s100 51<TgEfMB>3dJ[?oTkT[?2
+!i10b 1
+Abh_m2x1
+R2
+R3
+R4
+DEx4 work 7 mux_2x1 0 22 eQ^QECeaSOK1EI5;TH@YS3
+l17
+L16
+VF0n@@@VWT8Fi2NE4BPlog2
+R8
+31
+R9
+R10
+R11
+R12
+R13
+!s100 HP_[^6]=AY@9J6D_l8YLL1
+!i10b 1
+Etestbench_m2x1
+Z14 w1574224709
+R2
+R3
+R4
+R5
+Z15 8C:/Users/Gabriel_Ricardo/Documents/Documentos_Gabriel/Quartus_projects/Lifi/basic_components/mux_2x1/testbench_m2x1.vhd
+Z16 FC:/Users/Gabriel_Ricardo/Documents/Documentos_Gabriel/Quartus_projects/Lifi/basic_components/mux_2x1/testbench_m2x1.vhd
+l0
+L5
+Vf9fKgCaTW[9keR16CG0mU0
+!s100 Hi[M1md3=]nLSicOD8<gm1
+R8
+31
+!i10b 1
+Z17 !s108 1574224814.391000
+Z18 !s90 -reportprogress|300|-93|-work|work|C:/Users/Gabriel_Ricardo/Documents/Documentos_Gabriel/Quartus_projects/Lifi/basic_components/mux_2x1/testbench_m2x1.vhd|
+Z19 !s107 C:/Users/Gabriel_Ricardo/Documents/Documentos_Gabriel/Quartus_projects/Lifi/basic_components/mux_2x1/testbench_m2x1.vhd|
+R12
+R13
+Adataflow_tbm2x1
+R2
+R3
+R4
+DEx4 work 14 testbench_m2x1 0 22 f9fKgCaTW[9keR16CG0mU0
+l24
+L8
+VN@zFQ]8ERGM5S[:F9@Yh>2
+!s100 >LAlc7B=lK`=T8O??8W@H0
+R8
+31
+!i10b 1
+R17
+R18
+R19
+R12
+R13

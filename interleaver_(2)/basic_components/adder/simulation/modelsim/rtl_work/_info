@@ -1,0 +1,79 @@
+m255
+K3
+13
+cModel Technology
+Z0 dC:\Users\Gabriel_Ricardo\Documents\Documentos_Gabriel\Quartus_projects\Lifi\basic_components\adder\simulation\modelsim
+Eadder
+Z1 w1574246368
+Z2 DPx4 ieee 11 numeric_std 0 22 O3PF8EB`?j9=z7KT`fn941
+Z3 DPx3 std 6 textio 0 22 5>J:;AW>W0[[dW0I6EN1Q0
+Z4 DPx4 ieee 14 std_logic_1164 0 22 5=aWaoGZSMWIcH0i^f`XF1
+Z5 dC:\Users\Gabriel_Ricardo\Documents\Documentos_Gabriel\Quartus_projects\Lifi\basic_components\adder\simulation\modelsim
+Z6 8C:/Users/Gabriel_Ricardo/Documents/Documentos_Gabriel/Quartus_projects/Lifi/basic_components/adder/adder.vhd
+Z7 FC:/Users/Gabriel_Ricardo/Documents/Documentos_Gabriel/Quartus_projects/Lifi/basic_components/adder/adder.vhd
+l0
+L5
+VNSFlL55NIaLhGl3U;^0gE0
+Z8 OV;C;10.1b;51
+31
+Z9 !s108 1574246639.004000
+Z10 !s90 -reportprogress|300|-93|-work|work|C:/Users/Gabriel_Ricardo/Documents/Documentos_Gabriel/Quartus_projects/Lifi/basic_components/adder/adder.vhd|
+Z11 !s107 C:/Users/Gabriel_Ricardo/Documents/Documentos_Gabriel/Quartus_projects/Lifi/basic_components/adder/adder.vhd|
+Z12 o-93 -work work -O0
+Z13 tExplicit 1
+!s100 ci<1aKV5OO2oP1K61m^FG2
+!i10b 1
+Abh_add
+R2
+R3
+R4
+DEx4 work 5 adder 0 22 NSFlL55NIaLhGl3U;^0gE0
+l18
+L16
+V4^@6GT<M]V7:HQV6H[;6k3
+R8
+31
+R9
+R10
+R11
+R12
+R13
+!s100 F=FEQmo8`ee9DmKek?OL]1
+!i10b 1
+Etestbench_add
+Z14 w1574244751
+R2
+R3
+R4
+R5
+Z15 8C:/Users/Gabriel_Ricardo/Documents/Documentos_Gabriel/Quartus_projects/Lifi/basic_components/adder/testbench_add.vhd
+Z16 FC:/Users/Gabriel_Ricardo/Documents/Documentos_Gabriel/Quartus_projects/Lifi/basic_components/adder/testbench_add.vhd
+l0
+L5
+VjmQ^j1oY_[l7eCJ<F79GL3
+!s100 DSnHIRi2cm6VB7HO56WWj1
+R8
+31
+!i10b 1
+Z17 !s108 1574246639.614000
+Z18 !s90 -reportprogress|300|-93|-work|work|C:/Users/Gabriel_Ricardo/Documents/Documentos_Gabriel/Quartus_projects/Lifi/basic_components/adder/testbench_add.vhd|
+Z19 !s107 C:/Users/Gabriel_Ricardo/Documents/Documentos_Gabriel/Quartus_projects/Lifi/basic_components/adder/testbench_add.vhd|
+R12
+R13
+Adataflow_tba
+R2
+R3
+R4
+DEx4 work 13 testbench_add 0 22 jmQ^j1oY_[l7eCJ<F79GL3
+l24
+L8
+V64k[]4YCbR4L[oY:knDDL0
+!s100 ^G`=Z7aa77K5gkGn_7ln_2
+R8
+31
+!i10b 1
+R17
+R18
+R19
+R12
+R13
