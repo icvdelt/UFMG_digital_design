@@ -4,9 +4,9 @@ use IEEE.NUMERIC_STD.all;
 
 entity mux_2x1 is
 	generic (
-		NUMBER_OF_BITS_PER_INPUT : natural := 4);
+		NUMBER_OF_BITS_PER_INPUT : natural);
 	port (
-		en : in std_logic;
+--		en : in std_logic;
 		i_index : in std_logic;
 		i_data_0 : in std_logic_vector ((NUMBER_OF_BITS_PER_INPUT - 1) downto 0);
 		i_data_1 : in std_logic_vector ((NUMBER_OF_BITS_PER_INPUT - 1) downto 0);
@@ -15,7 +15,7 @@ end mux_2x1;
 
 architecture bh_m2x1 of mux_2x1 is
 	begin
-		o_data <= i_data_0 when ((i_index = '0') AND (en = '1')) else
-					 i_data_1 when ((i_index = '1') AND (en = '1')) else
+		o_data <= i_data_0 when (i_index = '0') else
+					 i_data_1 when (i_index = '1') else
 					 (others => '0');
 end bh_m2x1;
