@@ -108,7 +108,7 @@ architecture structure_idp of interleaver_data_path is
 	end component;
 	
 	signal wire0 : std_logic_vector (5 downto 0);
-	signal wire1 : std_logic_vector (3 downto 0);
+	signal wire1 : std_logic_vector (5 downto 0);
 	signal last_col, col_cnt, w_mux3, w_mux7, last_col_1 : std_logic_vector ((COLUMN_ADDR_LENGTH - 1) downto 0);
 	signal last_lin, lin_cnt, w_mux6 : std_logic_vector ((LINE_ADDR_LENGTH - 1) downto 0);
 	signal i_ram_data : std_logic_vector ((WOrD_LENGTH - 1) downto 0);
@@ -184,7 +184,7 @@ architecture structure_idp of interleaver_data_path is
 				i_data_1 => aux3,
 				o_data (0) => wire1 (0));
 		
-		wire1 (3) <= NOT (wire1 (0));
+		wire1 (5) <= NOT (wire1 (0));
 		
 		MUX3 : mux_2x1	--Selects the reference for the last column.
 			generic map (
@@ -206,6 +206,8 @@ architecture structure_idp of interleaver_data_path is
 				i_data_1 => "0",
 				o_data (0) => wire1 (1));
 				
+		wire1 (3) <= wire1 (1) AND en_indexer;
+				
 		aux5 <= "" & wire0 (3);
 			
 		MUX5 : mux_2x1	--Selects the reset option for the column counter.
@@ -216,6 +218,8 @@ architecture structure_idp of interleaver_data_path is
 				i_data_0 => "0",
 				i_data_1 => aux5,
 				o_data (0) => wire1 (2));
+		
+		wire1 (4) <= wire1 (2) AND en_indexer;
 				
 		MUX6 : mux_2x1	--Selects the reference for the target of the lines.
 			generic map (
@@ -279,10 +283,10 @@ architecture structure_idp of interleaver_data_path is
 			port map (
 				clk => clk,
 				rst => rst_indexer,
-				clear_line => wire1 (1),
-				clear_column => wire1 (2),
+				clear_line => wire1 (3),
+				clear_column => wire1 (4),
 				inc => en_indexer,
-				axis => wire1 (3),
+				axis => wire1 (5),
 				lin_counter => aux0,
 				column_counter => aux1);
 				
