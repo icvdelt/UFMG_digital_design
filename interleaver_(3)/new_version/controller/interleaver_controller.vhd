@@ -6,35 +6,35 @@ use IEEE.NUMERIC_STD.all;
 
 entity interleaver_controller is
 	generic (
-	NUMBER_OF_STATES : natural := 9);
+		NUMBER_OF_STATES : natural := 9);
 	
 	port (
-	clk : in std_logic;
-	rst : in std_logic;
+		clk : in std_logic;
+		rst : in std_logic;
 	
-	i_start_interleaver : in std_logic;		--Indicates that the first input has been sent.	
-	i_valid : in std_logic;						--Validates the incoming data.
-	i_end_interleaver : in std_logic;		--Indicates that the last input has been sent.
-	i_consume : in std_logic;					--Requires an output from the interleaver.
-	full_ram : in std_logic;					--Indicates that the ram has reached its capacity.
-	first_out : in std_logic;					--Indicates that the first output is to be sent.
-	last_out : in std_logic;					--Indicates that the last output is to be sent.
+		i_start_interleaver : in std_logic;		--Indicates that the first input has been sent.	
+		i_valid : in std_logic;						--Validates the incoming data.
+		i_end_interleaver : in std_logic;		--Indicates that the last input has been sent.
+		i_consume : in std_logic;					--Requires an output from the interleaver.
+		full_ram : in std_logic;					--Indicates that the ram has reached its capacity.
+		first_out : in std_logic;					--Indicates that the first output is to be sent.
+		last_out : in std_logic;					--Indicates that the last output is to be sent.
 	
---	rst_ram_input : out std_logic;			--Resets the input register.
-	en_ram_input : out std_logic;				--Enables the input register.
-	rst_indexer : out std_logic;				--Resets the registers of the counter.
-	wr_rd_status : out std_logic;				--Selects the status of process (read/write).
-	en_indexer : out std_logic;				--Enables the registers of the counters.
-	rst_last_input : out std_logic;			--Resets the registers of the last line/column.
-	en_last_input : out std_logic;			--Enables the registers of the last line/column.
-	o_end_interleaver : out std_logic;		--Sets if the last output is sent. 
-	o_error : out std_logic;					--Sets in case of an error.
-	o_ram_wr_en : out std_logic;				--Sets when the interleaver is ready to recieve data.
-	o_in_ready : out std_logic;				--Enables the ram to store data.
-	o_start_interleaver : out std_logic;	--Sets if the first output is sent.
-	o_valid : out std_logic;					--Sets if the output sent is valid.
+--		rst_ram_input : out std_logic;			--Resets the input register.
+		en_ram_input : out std_logic;				--Enables the input register.
+		rst_indexer : out std_logic;				--Resets the registers of the counter.
+		wr_rd_status : out std_logic;				--Selects the status of process (read/write).
+		en_indexer : out std_logic;				--Enables the registers of the counters.
+		rst_last_input : out std_logic;			--Resets the registers of the last line/column.
+		en_last_input : out std_logic;			--Enables the registers of the last line/column.
+		o_end_interleaver : out std_logic;		--Sets if the last output is sent. 
+		o_error : out std_logic;					--Sets in case of an error.
+		o_ram_wr_en : out std_logic;				--Sets when the interleaver is ready to recieve data.
+		o_in_ready : out std_logic;				--Enables the ram to store data.
+		o_start_interleaver : out std_logic;	--Sets if the first output is sent.
+		o_valid : out std_logic;					--Sets if the output sent is valid.
 	
-	output : out std_logic_vector ((integer(ceil(log2(real(NUMBER_OF_STATES)))) - 1) downto 0));
+		output : out std_logic_vector ((integer(ceil(log2(real(NUMBER_OF_STATES)))) - 1) downto 0));
 	
 
 end interleaver_controller;
@@ -154,7 +154,7 @@ architecture behaviour_ict of interleaver_controller is
 --						rst_ram_input <= '0';
 						en_ram_input <= '0';
 						rst_indexer <= '1';
-						wr_rd_status <= '0';
+						wr_rd_status <= '1';
 						en_indexer <= '0';
 						rst_last_input <= '0';
 						en_last_input <= '1';
@@ -177,7 +177,7 @@ architecture behaviour_ict of interleaver_controller is
 --						rst_ram_input <= '0';
 						en_ram_input <= '0';
 						rst_indexer <= '0';
-						wr_rd_status <= '0';
+						wr_rd_status <= '1';
 						en_indexer <= '0';
 						rst_last_input <= '0';
 						en_last_input <= '0';
